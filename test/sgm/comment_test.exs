@@ -1,6 +1,6 @@
-defmodule SlackGithubMention.CommentTest do
+defmodule SGM.CommentTest do
   use ExUnit.Case
-  alias SlackGithubMention.Comment
+  alias SGM.Comment
 
   @fields %{
     body: "some comment with @mention",

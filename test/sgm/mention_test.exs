@@ -1,6 +1,6 @@
-defmodule SlackGithubMention.MentionTest do
+defmodule SGM.MentionTest do
   use ExUnit.Case
-  alias SlackGithubMention.{Mention, Comment}
+  alias SGM.{Mention, Comment}
 
   @comment %Comment{
     body: "mentioning @a and @b",

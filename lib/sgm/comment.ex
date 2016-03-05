@@ -1,5 +1,5 @@
-defmodule SlackGithubMention.Comment do
-  alias SlackGithubMention.Comment
+defmodule SGM.Comment do
+  alias SGM.Comment
 
   defstruct body: "", html_url: "", user_avatar_url: "", commit_id: ""
   @opaque t :: %Comment{

@@ -1,4 +1,4 @@
-defmodule SlackGithubMention.Router do
+defmodule SGM.Router do
   use Plug.Router
 
   plug Plug.Parsers, parsers: [:json], json_decoder: Poison

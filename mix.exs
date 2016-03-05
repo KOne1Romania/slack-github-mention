@@ -1,12 +1,13 @@
-defmodule SlackGithubMention.Mixfile do
+defmodule SGM.Mixfile do
   use Mix.Project
 
   def project do
-    [app: :slack_github_mention,
+    [app: :sgm,
      version: "0.0.1",
      elixir: "~> 1.2",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
+     default_task: "tns",
      deps: deps]
   end
 
@@ -15,7 +16,7 @@ defmodule SlackGithubMention.Mixfile do
   # Type "mix help compile.app" for more information
   def application do
     [applications: [:cowboy, :plug, :logger],
-     mod: {SlackGithubMention, []}]
+     mod: {SGM, []}]
   end
 
   # Dependencies can be Hex packages:

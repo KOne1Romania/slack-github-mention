@@ -1,5 +1,5 @@
-defmodule SlackGithubMention.Mention do
-  alias SlackGithubMention.{Comment, Mention}
+defmodule SGM.Mention do
+  alias SGM.{Comment, Mention}
 
   defstruct comment: %Comment{}, username: ""
   @type t :: %Mention{comment: Comment.t, username: String.t}
