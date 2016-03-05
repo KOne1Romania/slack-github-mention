@@ -1,13 +1,18 @@
-defmodule Github.Mention do
-  alias Github.Mention
+defmodule Github.User do
+  defstruct avatar_url: nil, login: nil, html_url: nil
+end
 
-  @user_struct %{avatar_url: nil, login: nil, html_url: nil}
-  @comment_struct %{html_url: nil, commit_id: nil, body: nil, user: @user_struct}
+defmodule Github.Comment do
+  defstruct html_url: nil, commit_id: nil, body: nil, user: %Github.User{}
+end
+
+defmodule Github.Mention do
+  alias Github.{Mention, Comment}
 
   @opaque t :: %Mention{}
-  defstruct comment: @comment_struct
+  defstruct comment: %Comment{}
 
   def from_github_json(json) do
-    Poison.decode!(json, as: %Mention{}, keys: :atoms!)
+    Poison.decode!(json, as: %Mention{})
   end
 end
