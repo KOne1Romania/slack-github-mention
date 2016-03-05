@@ -1,6 +1,12 @@
 defmodule Github.InMemory do
-  use Github, "work.com"
+  use Github
 
-  def user_emails("gh_user"), do: ["slack_user@work.com"]
-  def user_emails("gh_user2"), do: ["slack_user2@work.com"]
+  def user_emails(gh_uname) do
+    emails = Application.get_env(:sgm, :github_client).emails
+    emails[gh_uname]
+  end
+
+  def domain do
+    Application.get_env(:sgm, :domain)
+  end
 end

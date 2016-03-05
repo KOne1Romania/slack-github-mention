@@ -5,10 +5,10 @@ defmodule SGM.Bridge do
 
   @mention_pattern ~r/@(\w+)/
 
-  @spec mention_to_messages(Mention.t, Github.t) :: [Message.t]
-  def mention_to_messages(~m{%Mention comment}a = mention, github_client) do
+  @spec mention_to_messages(Mention.t, Github.t, String.t) :: [Message.t]
+  def mention_to_messages(~m{%Mention comment}a = mention, github_client, domain) do
     Regex.scan(@mention_pattern, comment.body, capture: :all_but_first)
-    |> Enum.map(fn [uname] -> github_client.user_email_name(uname) end)
+    |> Enum.map(fn [uname] -> github_client.user_email_name(uname, domain) end)
     |> Enum.map(&mention_to_message mention, &1)
   end
 

@@ -7,9 +7,8 @@ data = %{
   }
 }
 
-
 config :sgm,
   port: 4000,
   data: data
 
-import_config "integrations.exs"
+import_config "#{Mix.env}.exs"

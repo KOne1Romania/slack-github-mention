@@ -22,13 +22,13 @@ defmodule SGM.BridgeTest do
   test "mention_to_messages makes messages for all mentioned users" do
     mention = %Mention{comment: @comment}
     expected_messages = Enum.map(@mentioned_users, &message_for/1)
-    assert Bridge.mention_to_messages(mention, GithubClient) == expected_messages
+    assert Bridge.mention_to_messages(mention, GithubClient, GithubClient.domain) == expected_messages
   end
 
   test "mention_to_messages makes no message if no user was mentioned" do
     bare_comment = %{@comment | body: "no mention in this comment"}
     pseudo_mention = %Mention{comment: bare_comment}
-    assert Bridge.mention_to_messages(pseudo_mention, GithubClient) == []
+    assert Bridge.mention_to_messages(pseudo_mention, nil, "") == []
   end
 
   defp message_for(mentioned_user) do
