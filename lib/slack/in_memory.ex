@@ -1,11 +1,9 @@
-defmodule SGM.Slack.InMemory do
-  @behaviour SGM.Slack
+defmodule Slack.InMemory do
+  @behaviour Slack
+  require Logger
 
-  @mapping %{
-    "zaboco" => "bogdan.zaharia"
-  }
-
-  def username_for_github_name(gh_uname) do
-    @mapping[gh_uname]
+  def send_message(message) do
+    formatted_message = Poison.encode!(message, pretty: true)
+    Logger.debug "Sending slack message:\n#{formatted_message}"
   end
 end

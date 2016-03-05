@@ -7,7 +7,6 @@ defmodule SGM.Mixfile do
      elixir: "~> 1.2",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
-     default_task: "tns",
      deps: deps]
   end
 
