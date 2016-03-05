@@ -32,8 +32,9 @@ defmodule SGM.Mixfile do
     [
       {:mix_test_watch, "~> 0.2", only: :dev},
       {:cowboy, "~> 1.0.0"},
-      {:poison, "~> 1.4.0"},
-      {:plug, "~> 1.0"}
+      {:poison, "~> 2.0"},
+      {:plug, "~> 1.0"},
+      {:short_maps, git: "https://github.com/whatyouhide/short_maps"}
     ]
   end
 end

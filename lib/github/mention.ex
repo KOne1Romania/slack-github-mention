@@ -1,5 +1,5 @@
 defmodule Github.Mention do
-  alias Github.{Mention, Comment}
+  alias Github.Mention
 
   @user_struct %{avatar_url: nil, login: nil, html_url: nil}
   @comment_struct %{html_url: nil, commit_id: nil, body: nil, user: @user_struct}

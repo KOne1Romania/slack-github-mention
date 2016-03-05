@@ -5,7 +5,7 @@ defmodule Github.MentionTest do
   @fields %{
     comment: %{
       body: "some comment with @mention",
-      html_url: "https://github.com/Kalon/repo/commit/sha#commitcomment-16497684",
+      html_url: "https://github.com/org/repo/commit/sha#commitcomment-16497684",
       commit_id: "a75531c444b329da5e4ba248ff12b9bfea9a77a5",
       user: %{
         avatar_url: "https://avatars.githubusercontent.com/u/123?v=3",
@@ -31,6 +31,6 @@ defmodule Github.MentionTest do
   """
 
   test "parser correctly" do
-    # assert Mention.from_github_json(@github_json) == struct(Mention, @fields)
+    assert Mention.from_github_json(@github_json) == struct(Mention, @fields)
   end
 end
