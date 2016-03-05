@@ -15,4 +15,9 @@ defmodule SlackGithubMention.MentionTest do
       %Mention{comment: @comment, username: "b"}
     ]
   end
+
+  test "all_from_comment returns empty list if no user mentioned" do
+    neutral_comment = %{@comment | body: "some neutral text"}
+    assert Mention.all_from_comment(neutral_comment) == []
+  end
 end
