@@ -3,6 +3,15 @@ defmodule SGM.Bridge do
   alias Github.Mention
   alias Slack.Message
 
+  @mention_pattern ~r/@(\w+)/
+
+  @spec mention_to_messages(Mention.t, Github.t) :: [Message.t]
+  def mention_to_messages(~m{%Mention comment}a = mention, github_client) do
+    Regex.scan(@mention_pattern, comment.body, capture: :all_but_first)
+    |> Enum.map(fn [uname] -> github_client.user_email_name(uname) end)
+    |> Enum.map(&mention_to_message mention, &1)
+  end
+
   @spec mention_to_message(Mention.t, String.t) :: Message.t
   def mention_to_message(~m{%Mention comment}a, mentioned_user) do
     ~m{body html_url commit_id user}a = comment
