@@ -19,4 +19,9 @@ defmodule Github.Mention do
   def from_github_json(json) do
     Poison.decode!(json, as: %Mention{})
   end
+
+  @spec type(Mention.t) :: :comment | :issue
+  def type(%Mention{issue: %Issue{}}), do: :comment
+  def type(%Mention{issue: _}), do: :issue
+
 end

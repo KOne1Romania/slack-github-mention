@@ -33,6 +33,7 @@ defmodule Github.MentionTest do
     """
 
     assert Mention.from_github_json(github_commit_json) == commit_mention
+    assert Mention.type(commit_mention) == :comment
   end
 
   test "issue event parses correctly" do
