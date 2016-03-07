@@ -6,6 +6,7 @@ config :sgm,
   domain: domain,
   slack_client: %{
     module: Slack.InMemory,
+    url: ""
   },
   github_client: %{
     module: Github.InMemory,
