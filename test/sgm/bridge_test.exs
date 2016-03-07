@@ -31,6 +31,12 @@ defmodule SGM.BridgeTest do
     assert Bridge.mention_to_messages(pseudo_mention, nil, "") == []
   end
 
+  test "extract_mentioned_names" do
+    text = "@ab and @xy.z and @de-f"
+    expected_names = ["ab", "xy.z", "de-f"]
+    assert Bridge.extract_mentioned_names(text) == expected_names
+  end
+
   defp message_for(mentioned_user) do
     %Message{
       text: Bridge.statics(:commit).headline,
