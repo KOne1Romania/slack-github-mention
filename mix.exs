@@ -14,7 +14,7 @@ defmodule SGM.Mixfile do
   #
   # Type "mix help compile.app" for more information
   def application do
-    [applications: [:cowboy, :plug, :logger],
+    [applications: [:cowboy, :plug, :httpoison, :logger],
      mod: {SGM, []}]
   end
 
@@ -33,6 +33,7 @@ defmodule SGM.Mixfile do
       {:cowboy, "~> 1.0.0"},
       {:poison, "~> 2.0"},
       {:plug, "~> 1.0"},
+      {:httpoison, "~> 0.8.0"},
       {:short_maps, git: "https://github.com/whatyouhide/short_maps"}
     ]
   end

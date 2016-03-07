@@ -4,6 +4,6 @@ defmodule Slack.InMemory do
 
   def send_message(message) do
     formatted_message = Poison.encode!(message, pretty: true)
-    Logger.debug "Sending slack message:\n#{formatted_message}"
+    Logger.info "Sending slack message:\n#{formatted_message}"
   end
 end
